@@ -1,1 +1,27 @@
-<p>register works!</p>
+<!-- <p>register works!</p> -->
+<link rel="stylesheet" href="register.component.scss">
+
+<body>
+    
+    <div class="logo">
+        <img id="logo" src="../../../assets/logoPet.png" alt="Logo">
+      </div>
+      <div class="content">
+        <div class="title">
+          <h1>Regístrate</h1>
+        </div>
+        <div class="form">
+          <form class="formulario">
+            <input type="text" [(ngModel)]="user.nombres" name="nombres" class="name" required placeholder="Nombres">
+            <input type="text" [(ngModel)]="user.apellidos" name="apellidos" class="lastName" required placeholder="Apellidos">
+            <input type="email" [(ngModel)]="user.email" name="email" class="email" required placeholder="Correo electrónico">
+            <input type="password" [(ngModel)]="user.password" name="password" class="password" required placeholder="Contraseña">
+            <input type="password" [(ngModel)]="user.confirmPassword" name="confirmPassword" class="confirmPassword" required placeholder="Confirmar contraseña">
+          </form>
+          <div class="buttons">
+            <button class="registro" (click)="register()">Registrarse</button>
+            <button class="cancelar" (click)="returnLogin()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+</body>

@@ -1,0 +1,138 @@
+.main{
+    background-image: url('../../../assets/loginBackground.webp');
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    //background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+}
+
+.nav{
+    align-self: center;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.logo, .logOut{
+    width: 20%;
+    height: 90%;
+    text-align: center;
+    //border: 1px solid #fff;
+    //background-color: #fff2;
+}
+
+#logo, #cerrarSesion{
+    padding-top: 10px;
+    width: 100%;
+    height: 90%;
+}
+.content{
+    padding-top: 2.5vh;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userImage{
+    border-radius: 200px;
+    border: 1px solid #fff;
+    width: 17vh;
+    height: 17vh;
+}
+.options{
+    width: 100%;
+    margin-top: 2.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newProduct, .control{
+    margin-top: 2vh;
+    width: 80%;
+    height: 27vh;
+    background-color: #fff2;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+@media (min-width: 500px){
+    .nav{
+        height: 10vh;
+    }
+    .logo, .logOut{
+        width: 8%;
+        height: 100%;
+    }
+    #logo, #cerrarSesion{
+        width: 100%;
+        height: 100%;
+    }
+    .options{
+        height: 40vh;
+        margin-top: 10vh;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .newProduct, .control{
+        height: 100%;
+        width: 45%;
+    }
+    .newProduct:hover, .control:hover{
+        background-color: #fff4;
+        box-shadow: 0 0 15px #fff;
+    }
+}
+
+@media (min-width: 1000px){
+    .nav{
+        height: 10vh;
+    }
+    .logo, .logOut{
+        width: 8%;
+        height: 10vh;
+    }
+    #logo, #cerrarSesion{
+        padding-top: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .options{
+        height: 50vh;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .newProduct, .control{
+        height: 100%;
+        width: 45%;
+    }
+    .newProduct:hover, .control:hover{
+        background-color: #fff4;
+        box-shadow: 0 0 15px #fff;
+    }
+
+    .logOut:hover{
+        border: 1px solid #fff;
+        background-color: #fff2;
+    }
+}

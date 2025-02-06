@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<div class="main">
+    <div class="nav">
+        <div class="logo">
+            <img id="logo" src="../../../assets/logoPet.png" alt="">
+        </div>
+        <div class="titulo">
+            <h1>I</h1>
+        </div>
+        <div class="logOut">
+            <a (click)="returnLogin()">
+                <img id="cerrarSesion"  src="../../../assets/logOut.webp" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="userImage">
+
+        </div>
+        <div class="options">
+            <button class="newProduct" (click)="registerProduct()">Registrar nuevo producto</button>
+            <button class="control" (click)="goControl()">Control</button>
+        </div>
+    </div>
+</div>
+

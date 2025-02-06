@@ -1,0 +1,122 @@
+.main{
+    background-image: url('../../../assets/loginBackground.webp');
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    //background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    justify-content: flex-start;
+}
+
+.nav{
+    width: 100%;
+    height: 8vh;
+    margin-bottom: 5vh;
+}
+.logo{
+    margin: 0;
+    align-self: start;
+    width: 20%;
+    height: 90%;
+    text-align: center;
+}
+#logo{
+    padding-top: 10px;
+    width: 100%;
+    height: 90%;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 70vh;
+    border-bottom: 1px solid #fff;
+    
+}
+.info{
+    width: 100%;
+    height: 35vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.form{
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.digitIn{
+    width: 100%;
+    height: 5vh;
+    border-radius: 20px;
+    background-color: #d1d7dbaa;
+    border: none;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+}
+.verify, .cancel{
+    width: 45%;
+    height: 5vh;
+    border-radius: 20px;
+    background-color: #188fde;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 5vh;
+    box-shadow: 0px 5px 10px #000;
+}
+
+@media (min-width: 500px){
+    .nav{
+        width: 50%;
+        padding: 40px;
+        margin: 0;
+        margin-top: 5vh;
+        background-color: #000a;
+    }
+    
+    .content{
+        width: 50%;
+        border: none;
+        padding: 0 40px 0 40px;
+        background-color: #000a;
+    }
+    .digitIn{
+        width: 80%;
+    }
+}
+
+@media (min-width: 1000px){
+    .nav{
+        width: 40%;
+        padding: 40px;
+        margin: 0;
+        margin-top: 6vh;
+        background-color: #000a;
+    }
+    
+    .content{
+        width: 40%;
+        border: none;
+        padding: 0 40px 0 40px;
+        background-color: #000a;
+    }
+    .digitIn{
+        width: 80%;
+    }
+}

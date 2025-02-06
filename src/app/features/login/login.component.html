@@ -1,1 +1,36 @@
-<p>login works!</p>
+<link rel="stylesheet" href="login.component.scss">
+
+<body>
+    <div class="blackBackground">
+        <div class="content">
+            <div class="infoPettersson">
+                <div class="logoPettersson">
+                    <img id="logo" src="../../../assets/logoPet.png" alt="">
+                </div>
+                <div class="name">
+                    <h2 class="namePet">PETTERSSON</h2>
+                </div>
+            </div>
+            <form class="formLogin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="username">
+                    <label id="labelUsername" for="email">Usuario</label>
+                    <input type="email" id="inputUser" formControlName="email" required placeholder="Correo electrónico">
+                </div>
+                <div class="password">
+                    <label id="labelPassword" for="password">Contraseña</label>
+                    <input type="password" id="inputPassword" formControlName="password" required placeholder="Contraseña">
+                </div>
+                <div class="keepSigned">
+                    <input id="checkbox" type="checkbox" formControlName="rememberMe">
+                    <label id="checkLabel" for="checkbox">Mantener iniciada la sesión</label>
+                </div>
+                <div class="loginButton">
+                    <button type="submit" class="button" [disabled]="loginForm.invalid">Iniciar sesión</button>
+                </div>
+            </form> 
+            <div class="registro">
+                <a class="registerLink" (click)="navigateToRegister()">Regístrate</a>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,1 +1,20 @@
-<p>register-product works!</p>
+<!-- <p>register-product works!</p> -->
+
+<div class="main">
+    <div class="nav">
+        <div class="logo">
+            <img id="logo" src="../../../assets/logoPet.png" alt="">
+        </div>
+    </div>
+    <div class="content">
+        <div class="info">
+            <h1>Registrar nuevo producto</h1>
+            <p>Por favor ingrese el código de 9 dígitos que se encuentra en la etiqueta de producto</p>
+        </div>
+        <div class="form">
+            <input class="digitIn" type="text" [maxLength]="9" minlength="9" required>
+            <button class="verify">Verificar</button>
+            <button class="cancel" (click)="returnLogin()">Cancelar</button>
+        </div>
+    </div>
+</div>
