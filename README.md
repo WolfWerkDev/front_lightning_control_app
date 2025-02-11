@@ -1,4 +1,4 @@
-![Angular](https://es.m.wikipedia.org/wiki/Archivo:Angular_full_color_logo.svg)
+![Angular](https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg)
 
 # LightningControlAppFront
 
