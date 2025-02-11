@@ -1,5 +1,3 @@
-<!-- <p>register-product works!</p> -->
-
 <div class="main">
     <div class="nav">
         <div class="logo">
@@ -12,8 +10,8 @@
             <p>Por favor ingrese el código de 9 dígitos que se encuentra en la etiqueta de producto</p>
         </div>
         <div class="form">
-            <input class="digitIn" type="text" [maxLength]="9" minlength="9" required>
-            <button class="verify">Verificar</button>
+            <input class="digitIn" type="text" [(ngModel)]="codigoValidacion" maxlength="9" minlength="9" required>
+            <button class="verify" (click)="verificarProducto()">Verificar</button>
             <button class="cancel" (click)="returnLogin()">Cancelar</button>
         </div>
     </div>

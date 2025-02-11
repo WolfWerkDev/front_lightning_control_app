@@ -1,22 +1,53 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
-// Define la URL de la API de login
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/login'; // Cambia esta URL a la de tu backend
+  private apiUrl = 'http://localhost:8080/login'; // URL del backend
 
   constructor(private http: HttpClient) { }
 
-  // Método de login que hace una petición POST con los datos del usuario
+  // Método de login
   login(email: string, password: string): Observable<any> {
-    const body = { email, password }; // Los datos que enviamos al backend
-    return this.http.post(this.apiUrl, body); // Realiza la petición HTTP POST
+    const body = { email, password };
+  
+    return this.http.post<{ tokenService: string, id: number, nombres: string, apellidos: string }>(this.apiUrl, body).pipe(
+      tap(response => {
+        console.log('Respuesta completa del backend:', response); // Depuración
+    
+        if (response.tokenService && response.id !== undefined) {
+          sessionStorage.setItem('token', response.tokenService);
+          sessionStorage.setItem('id', response.id.toString()); // Guardar en sessionStorage
+          sessionStorage.setItem('nombres', response.nombres);
+          sessionStorage.setItem('apellidos', response.apellidos);
+    
+          console.log('ID almacenado en sessionStorage:', sessionStorage.getItem('id')); // Confirmación
+        } else {
+          console.error('Error: La respuesta no contiene tokenService o id.');
+        }
+      })
+    );
+    
+    
+  }
+  
+
+  // Método para obtener el token
+  getToken(): string | null {
+    return sessionStorage.getItem('token');
   }
 
-  // Otras funciones relacionadas con la autenticación pueden ir aquí (por ejemplo, logout)
+  getId(): string | null {
+    return sessionStorage.getItem('id');
+  }
+  // Método para cerrar sesión
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    sessionStorage.removeItem('token');
+  }
 }

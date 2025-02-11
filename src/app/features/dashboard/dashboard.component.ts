@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  constructor(private router: Router) {}
+  usuarioName: string | null;
+  usuarioLastName: string | null;
+
+  constructor(private router: Router) {
+    this.usuarioName = sessionStorage.getItem('nombres');
+    this.usuarioLastName = sessionStorage.getItem('apellidos');
+  }
 
   returnLogin() {
-    localStorage.removeItem('token'); // Elimina el token de autenticación
-    console.log("Token borrado");
+    sessionStorage.clear(); // Limpia todos los datos de la sesión
+    console.log("Sesión cerrada");
     this.router.navigate(['/login']); // Redirige al login
   }
 

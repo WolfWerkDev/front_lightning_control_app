@@ -39,6 +39,7 @@ export class LoginComponent {
         (response) => {
           console.log('Login exitoso:', response);
           localStorage.setItem('token', response.token); // Si el backend devuelve un token
+          localStorage.setItem('id', response.usuarioId);
           this.router.navigate(['/dashboard']); // Redirige al usuario
         },
         (error) => {
