@@ -3,8 +3,8 @@
         <div class="logo">
             <img id="logo" src="../../../assets/logoPet.png" alt="">
         </div>
-        <div class="titulo">
-            <h2>Bienvenido, {{ usuarioName }} {{ usuarioLastName }}</h2>
+        <div class="saludo" >
+            <h2>{{ greetByHour() }}</h2>
         </div>
         <div class="logOut">
             <a (click)="returnLogin()">
@@ -15,12 +15,13 @@
 
     <div class="content">
         <div class="userImage">
-
+            <img id="userPic" src="../../../assets/userProfPic.jpg" alt="userPhoto">
+            <div class="addPhoto">+ any function</div>
         </div>
         <div class="options">
             <button class="newProduct" (click)="registerProduct()">Registrar nuevo producto</button>
-            <button class="control" (click)="goControl()">Control</button>
+            <button class="control" (click)="goControl()">Mis productos</button>
         </div>
     </div>
 </div>
-
+z

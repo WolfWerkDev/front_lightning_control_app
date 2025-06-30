@@ -50,4 +50,7 @@ export class AuthService {
     localStorage.removeItem('id');
     sessionStorage.removeItem('token');
   }
+  isAuthenticated(): boolean {
+    return !!sessionStorage.getItem('token'); // Verifica si hay un token guardado
+  }
 }

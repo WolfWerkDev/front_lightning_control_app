@@ -20,12 +20,16 @@
                     <label id="labelPassword" for="password">Contraseña</label>
                     <input type="password" id="inputPassword" formControlName="password" required placeholder="Contraseña">
                 </div>
-                <div class="keepSigned">
+                <!-- Se mantiene oculto por el momento mientras se desarrolla feature -->
+                <div class="keepSigned" style="visibility: hidden;">
                     <input id="checkbox" type="checkbox" formControlName="rememberMe">
                     <label id="checkLabel" for="checkbox">Mantener iniciada la sesión</label>
                 </div>
                 <div class="loginButton">
                     <button type="submit" class="button" [disabled]="loginForm.invalid">Iniciar sesión</button>
+                </div>
+                <div class="loginError" style="visibility: visible;" *ngIf="loginErrorVisible">
+                    ✕ Usuario o contraseña incorrectos
                 </div>
             </form> 
             <div class="registro">

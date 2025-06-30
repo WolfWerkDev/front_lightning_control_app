@@ -1,0 +1,333 @@
+.main {
+    background-image: url('../../../assets/loginBackground.webp');
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    height: 9vh;
+    flex-direction: row;
+    background-color: #000;
+    padding: 10px;
+    box-shadow: 0 0 10px #0007;
+}
+
+.inicioImg{
+    width: 80%;
+    height: 80%;
+}
+.inicioImg:hover{
+    background-color: #2a2a2a;
+    //transform: scale(1.05);
+    box-shadow: 0px 0px 5px #ddd7;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    padding-left: 30px;
+    border-left: 1px solid #ddd;
+    height: 80%;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.logo {
+    width: 8%;
+    height: 100%;
+    text-align: center;
+}
+
+.home {
+    width: 8%;
+    height: 11vh;
+    position: absolute;
+    right: 0;
+}
+
+#logo {
+    width: 100%;
+    height: 80%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 80%;
+    max-height: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.h3title{
+    align-self: center;
+    font-size: 2rem;
+    background-color: #0007;
+    width: 80%;
+    padding: 20px 50px 0 50px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.listaProductos {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-self: center;
+    width: 80%;
+    padding: 50px;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    background-color: #0007;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.elementosListaProductos{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 7rem;
+    margin: 20px;
+    background-color: #000;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+.elementosListaProductos:hover{
+    background-color: #2a2a2a;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 5px #ddd7;
+
+}
+ol{
+    list-style: none;
+}
+
+.producto-item {
+    
+}
+
+.luces {
+    list-style-type: none;
+    padding: 0;
+}
+
+.luz-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el modal */
+.modal, .controlModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    //transform: scale(0.8);
+    transition: opacity 2s ease, transform 10s ease;
+}
+
+.modal-content, .control-modal-content {
+    background-color: #002d44;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 2px 2px #ddd;
+    
+}
+
+.infoModulo, .moduloInfo{
+    display: flex;
+    flex-direction: row;
+    margin: 2% 0 2% 0;
+    border: 1px solid #00f;
+}
+.capacidad{
+    display: flex;
+    flex-direction: row;
+}
+ul{
+    list-style: none;
+}
+
+.luces{
+    //border: 1px solid #0f0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    //margin-top: 2%;
+}
+#luz{
+    width: 50%;
+    text-align: left;
+}
+#numeroLuz{
+    text-align: left;
+}
+.nombreLuz{
+    border-radius: 10px;
+    height: 30px;
+    padding-left: 10px;
+}
+.listaElementos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.elemento{
+    padding: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#nameLuz{
+    margin: 5px;
+}
+#boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    height: 100px;
+    background-color: #424345;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+  
+#boton:hover {
+    background-color: #2a2a2a;
+}
+
+@keyframes parpadeo {
+    0% { box-shadow: 0 0 10px rgba(255, 255, 0, 0.8); }
+    50% { box-shadow: 0 0 20px rgba(255, 255, 0, 1); }
+    100% { box-shadow: 0 0 10px rgba(255, 255, 0, 0.8); }
+}
+
+.encendido {
+    background-color: #ff0 !important;
+    color: black;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+    transform: scale(1.05);
+    animation: destello 3s infinite alternate;
+}
+
+/* 🔥 Estilos para el bombillo */
+.bombillo {
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+    border: 2px solid transparent;
+}
+
+/* 🔆 Bombillo encendido */
+.encendido .bombillo {
+    background-color: yellow;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 1);
+    border: 2px solid black;
+    animation: flotacion 3s infinite alternate;
+}
+
+/* 💡 Base del bombillo */
+.bombillo::after {
+    content: "";
+    width: 6px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* ✨ Animación de vibración */
+@keyframes flotacion {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+
+/* ⚡ Animación de destello al encenderse */
+@keyframes destello {
+    0% { box-shadow: 0 0 5px rgba(255, 255, 0, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(255, 255, 0, 1); }
+    100% { box-shadow: 0 0 10px rgba(255, 255, 0, 0.8); }
+}
+
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.modal, .controlModal[style*="visibility: visible"] {
+    visibility: visible;
+    //background-color: #0056b3;
+}

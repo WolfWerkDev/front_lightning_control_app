@@ -121,6 +121,12 @@ body{
     box-shadow: 0px 5px 10px #000;
 }
 
+// login erróneo
+.loginError{
+    color: #f00;
+    margin: auto;
+}
+
 //Registro
 .registro{
     display: flex;

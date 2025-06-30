@@ -1,1 +1,107 @@
-<p>light-control works!</p>
+<div class="main">
+  <div class="nav">
+    <div class="logo">
+      <img id="logo" src="../../../assets/logoPet.png" alt="Logo">
+    </div>
+    <div class="titulo">
+      <h2>Mis productos</h2>
+    </div>
+    <div class="home">
+      <a (click)="menuPrincipal()">
+        <img class="inicioImg" src="../../../assets/boton-de-inicio.png" alt="Menú principal" title="Menú principal">
+      </a>
+    </div>
+  </div>
+
+  <div class="content">
+    <h3 class="h3title">Aquí puedes ver tus productos y controlar su uso</h3>
+
+    <!-- Lista de productos -->
+    <ol class="listaProductos">
+      <p *ngIf="productos.length === 0">{{ mensaje }}</p>
+      <li class="elementosListaProductos" *ngFor="let producto of productos">
+
+        <h4>{{ producto?.nombreModulo }} (Capacidad: {{ producto?.capacidadModulo }})</h4>
+        <ul class="luces">
+          <!-- Aquí puedes añadir la lista de luces si es necesario -->
+        </ul>
+        <!-- Botón para editar producto -->
+        <button (click)="openModal(producto)">Editar producto</button>
+        <!-- Botón para controlar luces -->
+        <button (click)="openControlModal(producto)">Controlar luces</button>
+      </li>
+    </ol>
+  </div>
+
+  <!-- Modal para editar productos (invisible por defecto) -->
+  <div class="modal" style="visibility: visible; opacity: 1;" *ngIf="editModalVisible" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>Editar Producto</h3>
+
+      <div class="infoModulo">
+        <ul>
+          <li><label for="nombreModulo">Nombre del módulo:</label>
+            <input id="nombreModulo" [(ngModel)]="selectedProduct!.nombreModulo" />
+          </li>
+          <li class="capacidad">
+            <label for="capacidadModulo">Capacidad del módulo: </label>
+            <p *ngIf="selectedProduct">
+              <span>{{ selectedProduct.capacidadModulo }}</span> luminarias
+            </p>
+          </li>
+        </ul>
+      </div>
+
+
+      <h4>Nombres de las luminarias:</h4>
+      <div class="infoLuces">
+        <ul class="luces">
+          <li id="luz" *ngFor="let luz of selectedProduct?.luces">
+            <p id="numeroLuz">Luminaria #{{ luz.numeroLuz }}</p>
+            <input class="nombreLuz" [(ngModel)]="luz.nombreLuz" placeholder="Nombre de la luz" />
+          </li>
+        </ul>
+      </div>
+
+      <button (click)="applyChanges()">Aplicar cambios</button>
+      <button (click)="closeModal()">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Modal para control de luces (invisible por defecto) -->
+  <div class="controlModal" style="visibility: visible; opacity: 1;" *ngIf="controlModalVisible"
+    (click)="closeControlModal()">
+    <div class="control-modal-content" (click)="$event.stopPropagation()">
+      <h3>Control de luminarias</h3>
+      <div class="moduloInfo">
+        <label for="nombreModulo">Nombre del módulo:</label>
+        <p *ngIf="selectedProduct">
+          <span>{{ selectedProduct.nombreModulo }}</span>
+        </p>
+        <label for="capacidadModulo">Capacidad del módulo:</label>
+        <p *ngIf="selectedProduct">
+          <span>{{ selectedProduct.capacidadModulo }}</span> luminarias
+        </p>
+      </div>
+
+      <h4>Luminarias:</h4>
+      <div>
+        <ul class="controlLuces">
+          <div class="listaElementos">
+            <li class="elemento" *ngFor="let luz of selectedProduct?.luces">
+              <p id="nameLuz" *ngIf="selectedProduct">
+                <span>{{luz.nombreLuz}}</span>
+              </p>
+              <button id="boton" class="{{ luz.estadoLuz ? 'encendido' : '' }}" (click)="toggleLuz(luz)">
+                <span class="bombillo"></span> {{ luz.estadoLuz ? 'Apagar' : 'Encender' }}
+              </button>
+
+            </li>
+          </div>
+        </ul>
+      </div>
+
+      <button (click)="closeControlModal()">Retroceder</button>
+    </div>
+  </div>
+</div>
