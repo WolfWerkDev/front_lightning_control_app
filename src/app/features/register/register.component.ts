@@ -29,12 +29,12 @@ export class RegisterComponent {
     }
 
     // Mostrar el objeto user en la consola para verificar su formato
-    console.log('Datos enviados:', JSON.stringify(this.user)); // Usamos stringify para ver el formato exacto
+    // console.log('Datos enviados:', JSON.stringify(this.user)); // Usamos stringify para ver el formato exacto
 
     // No es necesario agregar 'Content-Type' manualmente en este caso, Angular lo hace automáticamente
     this.http.post('http://localhost:8080/register', this.user).subscribe(
       (response) => {
-        console.log('Usuario registrado con éxito', response);
+        // console.log('Usuario registrado con éxito', response);
         alert('Registro exitoso');
         this.router.navigate(['/login']);
       },

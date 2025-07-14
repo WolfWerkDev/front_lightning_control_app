@@ -27,7 +27,7 @@ export class DashboardComponent {
 
   returnLogin() {
     sessionStorage.clear(); // Limpia todos los datos de la sesión
-    console.log("Sesión cerrada");
+    // console.log("Sesión cerrada");
     this.router.navigate(['/login']); // Redirige al login
   }
 
@@ -56,7 +56,7 @@ export class DashboardComponent {
       // Consumimos el endpoint con el id del usuario
       this.http.get(`http://localhost:8080/product/my-products/${this.usuarioId}`, { headers }).subscribe(
         (productos) => {
-          console.log('Productos obtenidos:', productos);
+          // console.log('Productos obtenidos:', productos);
           // Guardamos los productos en sessionStorage para usar en la página siguiente
           sessionStorage.setItem('productos', JSON.stringify(productos));
           this.router.navigate(['/light-control']); // Redirige a la página de control

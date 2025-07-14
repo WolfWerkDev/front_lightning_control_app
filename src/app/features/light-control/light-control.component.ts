@@ -45,7 +45,7 @@ export class LightControlComponent implements OnInit, OnDestroy {
     const productos = sessionStorage.getItem('productos');
     if (productos) {
       try {
-        console.log('Parseando productos...');
+        // console.log('Parseando productos...');
         this.productos = JSON.parse(productos);
       } catch (error) {
         console.error('Error al parsear los productos desde sessionStorage:', error);
@@ -57,15 +57,15 @@ export class LightControlComponent implements OnInit, OnDestroy {
 
   openModal(producto: Producto): void {
     this.editModalVisible = true;
-    console.log('Open modal');
-    console.log(producto);
+    // console.log('Open modal');
+    // console.log(producto);
     this.selectedProduct = { ...producto };
   }
   openControlModal(producto: Producto): void {
     this.controlModalVisible = true;
     this.editModalVisible = false; // Asegura que solo esta modal se abre
     this.selectedProduct = { ...producto };
-    console.log(producto);
+    // console.log(producto);
   
     
     // Llamar al backend para obtener la información más reciente de las luces
@@ -78,7 +78,7 @@ export class LightControlComponent implements OnInit, OnDestroy {
         //console.log('Luces actualizadas:', this.selectedProduct.luces);
       },
       (error) => {
-        console.error('Error al obtener la información de las luces:', error);
+        // console.error('Error al obtener la información de las luces:', error);
         alert('Hubo un error al obtener la información de las luces.');
       }
     );
@@ -89,17 +89,17 @@ export class LightControlComponent implements OnInit, OnDestroy {
   
   closeModal(): void {
     this.editModalVisible = false;
-    console.log('Modal cerrado');
+    // console.log('Modal cerrado');
   }
   closeControlModal(): void {
     if (this.selectedProduct?.luces) {
         // Guardar el estado actual de las luces en sessionStorage
         sessionStorage.setItem("lucesActualizadas", JSON.stringify(this.selectedProduct.luces));
-        console.log('lol');
+        // console.log('lol');
     }
 
     this.controlModalVisible = false;
-    console.log('Modal control cerrado');
+    // console.log('Modal control cerrado');
 }
 
 
@@ -117,11 +117,11 @@ export class LightControlComponent implements OnInit, OnDestroy {
   
     this.http.put<Luz>(endpoint, body, { headers }).subscribe(
       () => {
-        console.log(`Estado de la luz ${luz.id} cambiado. Actualizando lista...`);
+        // console.log(`Estado de la luz ${luz.id} cambiado. Actualizando lista...`);
         this.actualizarLuces(); // Llamar a la función para actualizar la lista de luces
       },
       (error) => {
-        console.error('Error al cambiar el estado de la luz:', error);
+        // console.error('Error al cambiar el estado de la luz:', error);
         alert('Hubo un error al cambiar el estado de la luz.');
       }
     );
@@ -132,7 +132,7 @@ actualizarLuces(): void {
   if (!this.selectedProduct) return;
 
   const endpoint = `http://localhost:8080/control/${this.selectedProduct.id}/sse`;
-  console.log("Id de producto seleccionado: " + this.selectedProduct.id);
+  // console.log("Id de producto seleccionado: " + this.selectedProduct.id);
 
   // Cerrar conexión SSE previa si existe
   if (this.eventSource) {
@@ -153,7 +153,7 @@ actualizarLuces(): void {
 
       this.selectedProduct!.luces = lucesActualizadas.sort((a, b) => a.numeroLuz - b.numeroLuz);
       sessionStorage.setItem(`lucesActualizadas`, JSON.stringify(lucesActualizadas));
-      console.log("Luces actualizadas y guardadas en sessionStorage");
+      // console.log("Luces actualizadas y guardadas en sessionStorage");
     } catch (error) {
       console.error('Error al procesar los datos SSE:', error);
     }
@@ -168,7 +168,7 @@ actualizarLuces(): void {
 // Cerrar la conexión SSE al destruir el componente
 ngOnDestroy() {
   this.eventSource?.close();
-  console.log("SSE off");
+  // console.log("SSE off");
 }
 
 //fin sse
@@ -192,7 +192,7 @@ ngOnDestroy() {
         return throwError(error);
       })
     ).subscribe((productoActualizado) => {
-      console.log('Producto actualizado:', productoActualizado);
+      // console.log('Producto actualizado:', productoActualizado);
   
       // 2️⃣ Buscar el producto en la lista y actualizarlo sin cambiar el orden
       const index = this.productos.findIndex(p => p.id === productoActualizado.id);
