@@ -7,7 +7,7 @@ import { Observable, tap } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/login'; // URL del backend
+  private apiUrl = 'https://light-app-backend.onrender.com/login'; // URL del backend
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class AuthService {
   
     return this.http.post<{ tokenService: string, id: number, nombres: string, apellidos: string }>(this.apiUrl, body).pipe(
       tap(response => {
-        console.log('Respuesta completa del backend:', response); // Depuración
+        //console.log('Respuesta completa del backend:', response); // Depuración
     
         if (response.tokenService && response.id !== undefined) {
           sessionStorage.setItem('token', response.tokenService);
@@ -25,7 +25,7 @@ export class AuthService {
           sessionStorage.setItem('nombres', response.nombres);
           sessionStorage.setItem('apellidos', response.apellidos);
     
-          console.log('ID almacenado en sessionStorage:', sessionStorage.getItem('id')); // Confirmación
+          //console.log('ID almacenado en sessionStorage:', sessionStorage.getItem('id')); // Confirmación
         } else {
           console.error('Error: La respuesta no contiene tokenService o id.');
         }

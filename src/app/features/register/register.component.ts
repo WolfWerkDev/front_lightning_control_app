@@ -32,7 +32,7 @@ export class RegisterComponent {
     // console.log('Datos enviados:', JSON.stringify(this.user)); // Usamos stringify para ver el formato exacto
 
     // No es necesario agregar 'Content-Type' manualmente en este caso, Angular lo hace automáticamente
-    this.http.post('http://localhost:8080/register', this.user).subscribe(
+    this.http.post('https://light-app-backend.onrender.com/register', this.user).subscribe(
       (response) => {
         // console.log('Usuario registrado con éxito', response);
         alert('Registro exitoso');

@@ -54,7 +54,7 @@ export class DashboardComponent {
       });
 
       // Consumimos el endpoint con el id del usuario
-      this.http.get(`http://localhost:8080/product/my-products/${this.usuarioId}`, { headers }).subscribe(
+      this.http.get(`https://light-app-backend.onrender.com/product/my-products/${this.usuarioId}`, { headers }).subscribe(
         (productos) => {
           // console.log('Productos obtenidos:', productos);
           // Guardamos los productos en sessionStorage para usar en la página siguiente

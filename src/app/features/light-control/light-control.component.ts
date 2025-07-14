@@ -69,7 +69,7 @@ export class LightControlComponent implements OnInit, OnDestroy {
   
     
     // Llamar al backend para obtener la información más reciente de las luces
-    const endpoint = `http://localhost:8080/control/lights/${producto.id}`; // Ajustar la URL si es necesario
+    const endpoint = `https://light-app-backend.onrender.com/control/lights/${producto.id}`; // Ajustar la URL si es necesario
     const headers = { Authorization: `Bearer ${this.token}` };
   
     this.http.get<Luz[]>(endpoint, { headers }).subscribe(
@@ -111,7 +111,7 @@ export class LightControlComponent implements OnInit, OnDestroy {
       return;
     }
   
-    const endpoint = 'http://localhost:8080/control/state';
+    const endpoint = 'https://light-app-backend.onrender.com/control/state';
     const headers = { Authorization: `Bearer ${this.token}` };
     const body = { id: luz.id, estado: !luz.estadoLuz }; // Invertir el estado antes de enviar
   
@@ -131,7 +131,7 @@ export class LightControlComponent implements OnInit, OnDestroy {
 actualizarLuces(): void {
   if (!this.selectedProduct) return;
 
-  const endpoint = `http://localhost:8080/control/${this.selectedProduct.id}/sse`;
+  const endpoint = `https://light-app-backend.onrender.com/control/${this.selectedProduct.id}/sse`;
   // console.log("Id de producto seleccionado: " + this.selectedProduct.id);
 
   // Cerrar conexión SSE previa si existe
@@ -181,7 +181,7 @@ ngOnDestroy() {
       return;
     }
   
-    const updateEndpoint = `http://localhost:8080/product/update/${this.selectedProduct.id}`;
+    const updateEndpoint = `https://light-app-backend.onrender.com/product/update/${this.selectedProduct.id}`;
     const headers = { Authorization: `Bearer ${this.token}` };
   
     // 1️⃣ Actualizar el producto en el backend

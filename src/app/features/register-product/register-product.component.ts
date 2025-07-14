@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterProductComponent {
   codigoValidacion: string = '';
-  apiUrl = 'http://localhost:8080/product/validation'; // Reemplázalo por tu API real
+  apiUrl = 'https://light-app-backend.onrender.com/product/validation'; // Reemplázalo por tu API real
 
   constructor(private router: Router, private http: HttpClient) {}
 
